@@ -19,12 +19,16 @@ rackup
 ```bash
 git clone git@github.com:ronna-s/BackEndChallenge_001.git
 cd BackEndChallenge_001
+gem install heroku
 heroku create
 heroku buildpacks:set heroku/ruby
 git push heroku master
 heroku rake db:migrate
 ```
-
+###### run tests:
+```bash
+rake spec
+```
 
 #### Technical interpretation of the requirements:
 
