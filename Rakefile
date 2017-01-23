@@ -11,7 +11,7 @@ task 'routes' do
     list.each do |item|
       source = item[0].source
       item[1].each do |s|
-        source.sub!(/\(.+?\)/, ':'+s)   
+        source.sub!(/\(.+?\)/, ':'+s)
       end
       routes << source[1...-1]
     end
@@ -26,3 +26,13 @@ namespace :db do
     require "./daycare/daycare"
   end
 end
+
+
+task :spec do
+  require 'rspec/core/rake_task'
+
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.pattern = File.join('daycare', t.pattern)
+  end
+end
+
